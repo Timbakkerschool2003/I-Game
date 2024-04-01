@@ -8,6 +8,7 @@
 **Teamleden:**
 1. Tim Bakker
 2. Ashraf Basnoe
+3. Yusufkaan Bican
 
 **Doel van het Team:**
 Om samen een goed werkend project samen te stellen en als resultaat een tevreden product owner.
@@ -54,3 +55,4 @@ Om samen een goed werkend project samen te stellen en als resultaat een tevreden
 
 Ashraf Basnoe
 Tim Bakker
+Yusufkaan Bican
