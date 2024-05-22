@@ -28,12 +28,19 @@
 
         .stat-item {
             flex: 1 1 30%;
-            background-color: #17a2b8;
             margin: 10px;
             padding: 20px;
             text-align: center;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
             color: white;
+        }
+
+        .stat-item.blue {
+            background-color: #17a2b8;
+        }
+
+        .stat-item.red {
+            background-color: #d9534f;
         }
 
         .stat-item p {
@@ -113,32 +120,32 @@
 <body>
     <div class="container">
         <div class="stats">
-            <div class="stat-item">
+            <div class="stat-item blue">
                 <h2>{{ $customer_orders }}</h2>
                 <p>Customer Orders</p>
                 <p class="small">Last week's orders from your customers</p>
             </div>
-            <div class="stat-item">
+            <div class="stat-item {{ $backorder > 500 ? 'red' : 'blue' }}">
                 <h2>{{ $backorder }}</h2>
                 <p>Backorder</p>
                 <p class="small">The units you put on backorder because you ran out of stock</p>
             </div>
-            <div class="stat-item">
+            <div class="stat-item blue">
                 <h2>{{ $costs }} €</h2>
                 <p>Costs</p>
                 <p class="small">Last week's costs</p>
             </div>
-            <div class="stat-item">
+            <div class="stat-item blue">
                 <h2>{{ $incoming_delivery }}</h2>
                 <p>Incoming Delivery</p>
                 <p class="small">The units that were delivered to you from the wholesaler</p>
             </div>
-            <div class="stat-item">
+            <div class="stat-item blue">
                 <h2>{{ $inventory }}</h2>
                 <p>Inventory</p>
                 <p class="small">Units of beer you have in stock</p>
             </div>
-            <div class="stat-item">
+            <div class="stat-item blue">
                 <h2>{{ $outgoing_delivery }}</h2>
                 <p>Outgoing Delivery</p>
                 <p class="small">The units you delivered to your customers</p>

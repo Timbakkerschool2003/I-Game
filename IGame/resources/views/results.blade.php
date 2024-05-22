@@ -37,6 +37,11 @@
             color: white;
         }
 
+        .results-table td.red {
+            background-color: #d9534f;
+            color: white;
+        }
+
         .back-button {
             margin-top: 20px;
             padding: 10px 20px;
@@ -76,7 +81,7 @@
                         <td>{{ $result['week'] }}</td>
                         <td>{{ $result['extra_order'] }}</td>
                         <td>{{ $result['customer_orders'] }}</td>
-                        <td>{{ $result['backorder'] }}</td>
+                        <td class="{{ $result['backorder'] > 500 ? 'red' : '' }}">{{ $result['backorder'] }}</td>
                         <td>{{ $result['costs'] }} €</td>
                         <td>{{ $result['incoming_delivery'] }}</td>
                         <td>{{ $result['inventory'] }}</td>
