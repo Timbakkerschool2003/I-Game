@@ -116,17 +116,17 @@
             <div class="stat-item">
                 <h2>{{ $customer_orders }}</h2>
                 <p>Customer Orders</p>
-                <p class="small">Last weeks orders from your customers</p>
+                <p class="small">Last week's orders from your customers</p>
             </div>
             <div class="stat-item">
-                <h2>{{ $backorder }} </h2>
+                <h2>{{ $backorder }}</h2>
                 <p>Backorder</p>
                 <p class="small">The units you put on backorder because you ran out of stock</p>
             </div>
             <div class="stat-item">
                 <h2>{{ $costs }} €</h2>
                 <p>Costs</p>
-                <p class="small">Last weeks costs</p>
+                <p class="small">Last week's costs</p>
             </div>
             <div class="stat-item">
                 <h2>{{ $incoming_delivery }}</h2>
@@ -134,12 +134,12 @@
                 <p class="small">The units that were delivered to you from the wholesaler</p>
             </div>
             <div class="stat-item">
-                <h2>{{ $inventory }} </h2>
+                <h2>{{ $inventory }}</h2>
                 <p>Inventory</p>
                 <p class="small">Units of beer you have in stock</p>
             </div>
             <div class="stat-item">
-                <h2>{{ $outgoing_delivery }} </h2>
+                <h2>{{ $outgoing_delivery }}</h2>
                 <p>Outgoing Delivery</p>
                 <p class="small">The units you delivered to your customers</p>
             </div>
@@ -151,7 +151,6 @@
                 <input type="number" id="extra_order" name="extra_order" value="0">
                 <input type="hidden" name="customer_orders" value="{{ $customer_orders }}">
                 <input type="hidden" name="backorder" value="{{ $backorder }}">
-                <input type="hidden" name="costs" value="{{ $costs }}">
                 <input type="hidden" name="incoming_delivery" value="{{ $incoming_delivery }}">
                 <input type="hidden" name="inventory" value="{{ $inventory }}">
                 <input type="hidden" name="outgoing_delivery" value="{{ $outgoing_delivery }}">
