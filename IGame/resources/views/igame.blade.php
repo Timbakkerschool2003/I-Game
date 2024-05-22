@@ -101,7 +101,7 @@
         function checkGameOver(week) {
             if (week >= 24) {
                 alert('De game is klaar!');
-                document.getElementById('purchase-form').style.display = 'none';
+                window.location.href = "{{ route('igame.results') }}";
             }
         }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class IgameController extends Controller
 {
@@ -19,6 +20,9 @@ class IgameController extends Controller
             'week' => 1,
         ];
 
+        // Initialize results array in session
+        Session::put('results', []);
+
         return view('igame', $data);
     }
 
@@ -33,16 +37,25 @@ class IgameController extends Controller
         $extra_order = $request->input('extra_order', 0);
         $week = $request->input('week', 1);
 
+        // Retrieve results from session
+        $results = Session::get('results', []);
+
         if ($week >= 24) {
-            return view('igame', [
+            $results[] = [
+                'week' => $week,
+                'extra_order' => $extra_order,
                 'customer_orders' => $customer_orders,
                 'backorder' => $backorder,
                 'costs' => $costs,
                 'incoming_delivery' => $incoming_delivery,
                 'inventory' => $inventory,
                 'outgoing_delivery' => $outgoing_delivery,
-                'week' => $week,
-            ]);
+            ];
+
+            // Store results back in session
+            Session::put('results', $results);
+
+            return redirect()->route('igame.results');
         }
 
         // Update logica
@@ -59,6 +72,20 @@ class IgameController extends Controller
         // Verhoog de week
         $week += 1;
 
+        $results[] = [
+            'week' => $week,
+            'extra_order' => $extra_order,
+            'customer_orders' => $customer_orders,
+            'backorder' => $backorder,
+            'costs' => $costs,
+            'incoming_delivery' => $incoming_delivery,
+            'inventory' => $inventory,
+            'outgoing_delivery' => $outgoing_delivery,
+        ];
+
+        // Store results back in session
+        Session::put('results', $results);
+
         $data = [
             'customer_orders' => $customer_orders,
             'backorder' => $new_backorder,
@@ -67,8 +94,25 @@ class IgameController extends Controller
             'inventory' => $new_inventory,
             'outgoing_delivery' => $outgoing_delivery,
             'week' => $week,
+            'results' => $results,
         ];
 
         return view('igame', $data);
+    }
+
+    public function results()
+    {
+        // Retrieve results from session
+        $results = Session::get('results', []);
+
+        return view('results', ['results' => $results]);
+    }
+
+    public function reset()
+    {
+        // Clear the session data
+        Session::forget('results');
+
+        return redirect()->route('igame.index');
     }
 }
