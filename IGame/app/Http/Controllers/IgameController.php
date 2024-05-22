@@ -40,51 +40,40 @@ class IgameController extends Controller
         // Retrieve results from session
         $results = Session::get('results', []);
 
-        if ($week >= 24) {
-            $results[] = [
-                'week' => $week,
-                'extra_order' => $extra_order,
-                'customer_orders' => $customer_orders,
-                'backorder' => $backorder,
-                'costs' => $costs,
-                'incoming_delivery' => $incoming_delivery,
-                'inventory' => $inventory,
-                'outgoing_delivery' => $outgoing_delivery,
-            ];
-
-            // Store results back in session
-            Session::put('results', $results);
-
-            return redirect()->route('igame.results');
-        }
-
-        // Update logica
+        // Calculate new deliveries and inventory
         $new_incoming_delivery = $incoming_delivery + $extra_order;
-        $new_inventory = $inventory + $new_incoming_delivery - $customer_orders;
-        $new_backorder = max(0, $customer_orders - $new_inventory);
+        $total_available = $inventory + $new_incoming_delivery;
+        $fulfilled_orders = min($total_available, $customer_orders + $backorder);
 
-        if ($new_inventory < 0) {
-            $new_inventory = 0;
-        }
+        // Update inventory and backorder
+        $new_inventory = $total_available - $fulfilled_orders;
+        $new_backorder = max(0, $customer_orders + $backorder - $total_available);
 
+        // Calculate new costs
         $new_costs = ($new_inventory * 0.50) + ($new_backorder * 1.00);
 
-        // Verhoog de week
+        // Increment the week
         $week += 1;
 
+        // Add current week data to results
         $results[] = [
             'week' => $week,
             'extra_order' => $extra_order,
             'customer_orders' => $customer_orders,
-            'backorder' => $backorder,
-            'costs' => $costs,
-            'incoming_delivery' => $incoming_delivery,
-            'inventory' => $inventory,
-            'outgoing_delivery' => $outgoing_delivery,
+            'backorder' => $new_backorder,
+            'costs' => $new_costs,
+            'incoming_delivery' => $new_incoming_delivery,
+            'inventory' => $new_inventory,
+            'outgoing_delivery' => $fulfilled_orders,
         ];
 
         // Store results back in session
         Session::put('results', $results);
+
+        // Check if the game is over
+        if ($week >= 24) {
+            return redirect()->route('igame.results');
+        }
 
         $data = [
             'customer_orders' => $customer_orders,
@@ -92,7 +81,7 @@ class IgameController extends Controller
             'costs' => $new_costs,
             'incoming_delivery' => $new_incoming_delivery,
             'inventory' => $new_inventory,
-            'outgoing_delivery' => $outgoing_delivery,
+            'outgoing_delivery' => $fulfilled_orders,
             'week' => $week,
             'results' => $results,
         ];

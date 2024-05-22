@@ -148,7 +148,7 @@
             <form action="{{ route('igame.update') }}" method="POST">
                 @csrf
                 <label for="extra_order">Hoeveel koop ik in?</label>
-                <input type="number" id="extra_order" name="extra_order" value="0">
+                <input type="number" min="0" id="extra_order" name="extra_order" value="0">
                 <input type="hidden" name="customer_orders" value="{{ $customer_orders }}">
                 <input type="hidden" name="backorder" value="{{ $backorder }}">
                 <input type="hidden" name="costs" value="{{ $costs }}">
