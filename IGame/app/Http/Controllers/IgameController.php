@@ -16,6 +16,7 @@ class IgameController extends Controller
             'incoming_delivery' => 100,
             'inventory' => 400,
             'outgoing_delivery' => 100,
+            'week' => 1,
         ];
 
         return view('igame', $data);
@@ -30,6 +31,19 @@ class IgameController extends Controller
         $inventory = $request->input('inventory', 400);
         $outgoing_delivery = $request->input('outgoing_delivery', 100);
         $extra_order = $request->input('extra_order', 0);
+        $week = $request->input('week', 1);
+
+        if ($week >= 24) {
+            return view('igame', [
+                'customer_orders' => $customer_orders,
+                'backorder' => $backorder,
+                'costs' => $costs,
+                'incoming_delivery' => $incoming_delivery,
+                'inventory' => $inventory,
+                'outgoing_delivery' => $outgoing_delivery,
+                'week' => $week,
+            ]);
+        }
 
         // Update logica
         $new_incoming_delivery = $incoming_delivery + $extra_order;
@@ -42,6 +56,9 @@ class IgameController extends Controller
 
         $new_costs = ($new_inventory * 0.50) + ($new_backorder * 1.00);
 
+        // Verhoog de week
+        $week += 1;
+
         $data = [
             'customer_orders' => $customer_orders,
             'backorder' => $new_backorder,
@@ -49,6 +66,7 @@ class IgameController extends Controller
             'incoming_delivery' => $new_incoming_delivery,
             'inventory' => $new_inventory,
             'outgoing_delivery' => $outgoing_delivery,
+            'week' => $week,
         ];
 
         return view('igame', $data);

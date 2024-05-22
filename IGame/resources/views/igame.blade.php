@@ -97,6 +97,18 @@
             color: #555555;
         }
     </style>
+    <script>
+        function checkGameOver(week) {
+            if (week >= 24) {
+                alert('De game is klaar!');
+                document.getElementById('purchase-form').style.display = 'none';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            checkGameOver({{ $week }});
+        });
+    </script>
 </head>
 <body>
     <div class="container">
@@ -132,7 +144,7 @@
                 <p class="small">The units you delivered to your customers</p>
             </div>
         </div>
-        <div class="purchase">
+        <div class="purchase" id="purchase-form">
             <form action="{{ route('igame.update') }}" method="POST">
                 @csrf
                 <label for="extra_order">Hoeveel koop ik in?</label>
@@ -143,11 +155,12 @@
                 <input type="hidden" name="incoming_delivery" value="{{ $incoming_delivery }}">
                 <input type="hidden" name="inventory" value="{{ $inventory }}">
                 <input type="hidden" name="outgoing_delivery" value="{{ $outgoing_delivery }}">
+                <input type="hidden" name="week" value="{{ $week }}">
                 <button type="submit">Inkopen</button>
             </form>
         </div>
         <div class="footer">
-            <p>Dit is Week 1</p>
+            <p>Dit is Week {{ $week }}</p>
         </div>
     </div>
 </body>
