@@ -66,7 +66,7 @@ class IgameController extends Controller
 
         // Prepare data for next week
         $data = [
-            'customer_orders' => rand(80, 120), // Random new customer orders for next week
+            'customer_orders' => rand(80, 1000), // Willekeurige nieuwe klantbestellingen voor volgende week
             'backorder' => $new_backorder,
             'costs' => $new_costs,
             'incoming_delivery' => $extra_order,

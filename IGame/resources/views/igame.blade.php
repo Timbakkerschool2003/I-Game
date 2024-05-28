@@ -4,106 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Igame</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            width: 80%;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #ffffff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .stats {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-        }
-
-        .stat-item {
-            flex: 1 1 30%;
-            margin: 10px;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-            color: white;
-        }
-
-        .stat-item.blue {
-            background-color: #17a2b8;
-        }
-
-        .stat-item.red {
-            background-color: #d9534f;
-        }
-
-        .stat-item p {
-            margin: 0;
-            font-size: 16px;
-        }
-
-        .stat-item h2 {
-            margin: 10px 0;
-            font-size: 32px;
-        }
-
-        .stat-item .small {
-            font-size: 12px;
-            color: #f4f4f4;
-        }
-
-        .purchase {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #17a2b8;
-            padding: 20px;
-            margin: 10px 0;
-            color: white;
-        }
-
-        .purchase label {
-            flex: 1;
-            font-size: 16px;
-        }
-
-        .purchase input {
-            flex: 2;
-            padding: 10px;
-            font-size: 16px;
-        }
-
-        .purchase button {
-            flex: 1;
-            padding: 10px;
-            font-size: 16px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-
-        .purchase button:hover {
-            background-color: #45a049;
-        }
-
-        .footer {
-            text-align: left;
-            padding: 20px;
-        }
-
-        .footer p {
-            margin: 0;
-            font-size: 14px;
-            color: #555555;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('../css/app.css') }}">
     <script>
         function checkGameOver(week) {
             if (week >= 24) {
@@ -115,6 +16,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             checkGameOver({{ $week }});
         });
+
     </script>
 </head>
 <body>
