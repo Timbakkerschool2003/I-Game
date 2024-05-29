@@ -138,3 +138,21 @@ body {
 .back-button:hover {
     background-color: #138496;
 }
+
+.btn-big {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 20px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.btn-big:hover {
+    background-color: #45a049;
+}
