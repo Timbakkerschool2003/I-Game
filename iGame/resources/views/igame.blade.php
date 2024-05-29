@@ -15,43 +15,53 @@
 
         document.addEventListener('DOMContentLoaded', function() {
             checkGameOver({{ $week }});
+            updateProgressBar({{ $week }});
         });
 
+        function updateProgressBar(week) {
+            const progressBar = document.querySelector('.progress-bar');
+            const progressPercentage = (week / 24) * 100;
+            progressBar.style.width = progressPercentage + '%';
+        }
     </script>
 </head>
 <body>
     <div class="container">
         <div class="stats">
             <div class="stat-item blue">
-                <h2>{{ $customer_orders }}</h2>
+                <h2 class="animated-number">{{ $customer_orders }}</h2>
                 <p>Customer Orders</p>
                 <p class="small">Last week's orders from your customers</p>
             </div>
             <div class="stat-item {{ $backorder > 500 ? 'red' : 'blue' }}">
-                <h2>{{ $backorder }}</h2>
+                <h2 class="animated-number">{{ $backorder }}</h2>
                 <p>Backorder</p>
                 <p class="small">The units you put on backorder because you ran out of stock</p>
             </div>
             <div class="stat-item blue">
-                <h2>{{ $costs }} €</h2>
+                <h2 class="animated-number">{{ $costs }} €</h2>
                 <p>Costs</p>
                 <p class="small">Last week's costs</p>
             </div>
             <div class="stat-item blue">
-                <h2>{{ $incoming_delivery }}</h2>
+                <h2 class="animated-number">{{ $incoming_delivery }}</h2>
                 <p>Incoming Delivery</p>
                 <p class="small">The units that were delivered to you from the wholesaler</p>
             </div>
             <div class="stat-item blue">
-                <h2>{{ $inventory }}</h2>
+                <h2 class="animated-number">{{ $inventory }}</h2>
                 <p>Inventory</p>
                 <p class="small">Units of beer you have in stock</p>
             </div>
             <div class="stat-item blue">
-                <h2>{{ $outgoing_delivery }}</h2>
+                <h2 class="animated-number">{{ $outgoing_delivery }}</h2>
                 <p>Outgoing Delivery</p>
                 <p class="small">The units you delivered to your customers</p>
             </div>
+        </div>
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+            <div class="progress-label">Week {{ $week }} van 24</div>
         </div>
         <div class="purchase" id="purchase-form">
             <form action="{{ route('igame.update') }}" method="POST">
@@ -67,9 +77,7 @@
                 <button type="submit">Inkopen</button>
             </form>
         </div>
-        <div class="footer">
-            <p>Dit is Week {{ $week }}</p>
-        </div>
+        
     </div>
 </body>
 </html>
