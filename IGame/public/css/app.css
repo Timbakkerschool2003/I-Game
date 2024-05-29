@@ -2,207 +2,234 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Stelt het lettertype, achtergrondkleur, marge en padding van de body in */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
+    font-family: Arial, sans-serif; /* Instellen van het lettertype */
+    background-color: #f4f4f4; /* Instellen van de achtergrondkleur */
+    margin: 0; /* Verwijderen van marge */
+    padding: 0; /* Verwijderen van padding */
 }
 
+/* Stijlen voor de container die de gehele inhoud van de pagina bevat */
 .container {
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #ffffff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    margin-top: 3%;
+    width: 80%; /* Breedte van de container instellen */
+    margin: 0 auto; /* Centraal uitlijnen van de container */
+    padding: 20px; /* Binnenruimte toevoegen rondom de inhoud */
+    background-color: #ffffff; /* Achtergrondkleur van de container */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Zachte schaduw voor diepte-effect */
+    text-align: center; /* Tekstcentrering binnen de container */
+    margin-top: 3%; /* Bovenmarge toevoegen */
 }
 
+/* Flexbox instellingen voor de statistieken sectie */
 .stats {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: flex; /* Flexbox layout gebruiken */
+    flex-wrap: wrap; /* Flex items mogen naar de volgende regel breken */
+    justify-content: space-between; /* Ruimte tussen flex items verdelen */
 }
 
+/* Basis stijl voor elke statistiek item */
 .stat-item {
-    flex: 1 1 30%;
-    margin: 10px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    color: white;
+    flex: 1 1 30%; /* Flex items krijgen een flex-basis van 30% */
+    margin: 10px; /* Buitenmarge rondom elk item */
+    padding: 20px; /* Binnenruimte binnen elk item */
+    text-align: center; /* Tekstcentrering binnen elk item */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Zachte schaduw voor diepte-effect */
+    color: white; /* Tekstkleur wit */
 }
 
+/* Specifieke achtergrondkleur voor blauwe statistiek items */
 .stat-item.blue {
-    background-color: #17a2b8;
+    background-color: #17a2b8; /* Blauwachtige achtergrondkleur */
 }
 
+/* Specifieke achtergrondkleur voor rode statistiek items */
 .stat-item.red {
-    background-color: #d9534f;
+    background-color: #d9534f; /* Roodachtige achtergrondkleur */
 }
 
+/* Stijlen voor de tekst binnen statistiek items */
 .stat-item p {
-    margin: 0;
-    font-size: 16px;
+    margin: 0; /* Verwijderen van marge */
+    font-size: 16px; /* Tekstgrootte instellen */
 }
 
+/* Stijlen voor de hoofdtitel binnen statistiek items */
 .stat-item h2 {
-    margin: 10px 0;
-    font-size: 32px;
+    margin: 10px 0; /* Boven- en ondermarge instellen */
+    font-size: 32px; /* Tekstgrootte instellen */
 }
 
+/* Stijlen voor kleinere tekst binnen statistiek items */
 .stat-item .small {
-    font-size: 12px;
-    color: #f4f4f4;
+    font-size: 12px; /* Kleinere tekstgrootte */
+    color: #f4f4f4; /* Lichtgrijze tekstkleur */
 }
 
+/* Stijlen voor het aankoopformulier */
 .purchase {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #17a2b8;
-    padding: 20px;
-    margin: 10px 0;
-    color: white;
+    display: flex; /* Flexbox layout gebruiken */
+    justify-content: space-between; /* Ruimte tussen flex items verdelen */
+    align-items: center; /* Flex items verticaal uitlijnen in het midden */
+    background-color: #17a2b8; /* Achtergrondkleur */
+    padding: 20px; /* Binnenruimte toevoegen */
+    margin: 10px 0; /* Boven- en ondermarge toevoegen */
+    color: white; /* Tekstkleur wit */
 }
 
+/* Stijlen voor het label binnen het aankoopformulier */
 .purchase label {
-    flex: 1;
-    font-size: 16px;
+    flex: 1; /* Flex item neemt 1 eenheid van ruimte */
+    font-size: 16px; /* Tekstgrootte instellen */
 }
 
+/* Stijlen voor het invoerveld binnen het aankoopformulier */
 .purchase input {
-    flex: 2;
-    padding: 10px;
-    font-size: 16px;
+    flex: 2; /* Flex item neemt 2 eenheden van ruimte */
+    padding: 10px; /* Binnenruimte toevoegen */
+    font-size: 16px; /* Tekstgrootte instellen */
 }
 
+/* Stijlen voor de knop binnen het aankoopformulier */
 .purchase button {
-    flex: 1;
-    padding: 10px;
-    font-size: 16px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
+    flex: 1; /* Flex item neemt 1 eenheid van ruimte */
+    padding: 10px; /* Binnenruimte toevoegen */
+    font-size: 16px; /* Tekstgrootte instellen */
+    background-color: #4CAF50; /* Achtergrondkleur groen */
+    color: white; /* Tekstkleur wit */
+    border: none; /* Geen rand */
+    cursor: pointer; /* Cursor wijzigen naar handicoon */
 }
 
+/* Hover-effect voor de knop binnen het aankoopformulier */
 .purchase button:hover {
-    background-color: #45a049;
+    background-color: #45a049; /* Donkerder groene achtergrondkleur bij hover */
 }
 
+/* Stijlen voor de footer */
 .footer {
-    text-align: left;
-    padding: 20px;
+    text-align: left; /* Tekst uitlijnen naar links */
+    padding: 20px; /* Binnenruimte toevoegen */
 }
 
+/* Stijlen voor de tekst binnen de footer */
 .footer p {
-    margin: 0;
-    font-size: 14px;
-    color: #555555;
+    margin: 0; /* Verwijderen van marge */
+    font-size: 14px; /* Tekstgrootte instellen */
+    color: #555555; /* Donkergrijze tekstkleur */
 }
 
+/* Stijlen voor de tabel met resultaten */
 .results-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+    width: 100%; /* Tabel neemt volledige breedte in */
+    border-collapse: collapse; /* Randen van tabelcellen samenvouwen */
+    margin-top: 20px; /* Bovenmarge toevoegen */
 }
 
+/* Stijlen voor de tabelcellen */
 .results-table th, .results-table td {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
+    border: 1px solid #dddddd; /* Lichtgrijze rand */
+    text-align: left; /* Tekst uitlijnen naar links */
+    padding: 8px; /* Binnenruimte toevoegen */
 }
 
+/* Achtergrondkleur voor de tabelkop */
 .results-table th {
-    background-color: #17a2b8;
-    color: white;
+    background-color: #17a2b8; /* Blauwachtige achtergrondkleur */
+    color: white; /* Tekstkleur wit */
 }
 
+/* Achtergrondkleur voor tabelcellen met een rode waarde */
 .results-table td.red {
-    background-color: #d9534f;
-    color: white;
+    background-color: #d9534f; /* Roodachtige achtergrondkleur */
+    color: white; /* Tekstkleur wit */
 }
 
+/* Stijlen voor de terugknop */
 .back-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #17a2b8;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    border: none;
-    cursor: pointer;
+    margin-top: 20px; /* Bovenmarge toevoegen */
+    padding: 10px 20px; /* Binnenruimte toevoegen */
+    background-color: #17a2b8; /* Achtergrondkleur */
+    color: white; /* Tekstkleur wit */
+    text-align: center; /* Tekst centreren */
+    text-decoration: none; /* Geen onderstreping */
+    display: inline-block; /* Inline-block weergave */
+    border: none; /* Geen rand */
+    cursor: pointer; /* Cursor wijzigen naar handicoon */
 }
 
+/* Hover-effect voor de terugknop */
 .back-button:hover {
-    background-color: #138496;
+    background-color: #138496; /* Donkerder blauwe achtergrondkleur bij hover */
 }
 
+/* Stijlen voor grote knoppen */
 .btn-big {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 20px 40px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 20px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 8px;
+    background-color: #4CAF50; /* Groene achtergrondkleur */
+    border: none; /* Geen rand */
+    color: white; /* Tekstkleur wit */
+    padding: 20px 40px; /* Binnenruimte toevoegen */
+    text-align: center; /* Tekst centreren */
+    text-decoration: none; /* Geen onderstreping */
+    display: inline-block; /* Inline-block weergave */
+    font-size: 20px; /* Tekstgrootte instellen */
+    margin: 4px 2px; /* Buitenmarge toevoegen */
+    cursor: pointer; /* Cursor wijzigen naar handicoon */
+    border-radius: 8px; /* Afronden van hoeken */
 }
 
+/* Hover-effect voor grote knoppen */
 .btn-big:hover {
-    background-color: #45a049;
+    background-color: #45a049; /* Donkerder groene achtergrondkleur bij hover */
 }
 
+/* Animatie voor het vervagen van cijfers */
 @keyframes fadeIn {
     from {
-        opacity: 0;
+        opacity: 0; /* Begin met volledige transparantie */
     }
     to {
-        opacity: 1;
+        opacity: 1; /* Eindig met volledige zichtbaarheid */
     }
 }
 
+/* Class voor geanimeerde nummers */
 .animated-number {
-    display: inline-block;
-    animation: fadeIn 1s ease-in-out;
+    display: inline-block; /* Inline-block weergave */
+    animation: fadeIn 1s ease-in-out; /* Fade-in animatie van 1 seconde */
 }
 
-
+/* Stijlen voor de voortgangsbalk container */
 .progress-container {
-    width: 100%;
-    background-color: #e0e0e0;
-    border-radius: 25px;
-    margin: 20px 0;
-    overflow: hidden;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    position: relative;
+    width: 100%; /* Volledige breedte */
+    background-color: #e0e0e0; /* Lichtgrijze achtergrondkleur */
+    border-radius: 25px; /* Afronden van hoeken */
+    margin: 20px 0; /* Boven- en ondermarge toevoegen */
+    overflow: hidden; /* Verberg inhoud die buiten de container valt */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Zachte schaduw voor diepte-effect */
+    position: relative; /* Positionering voor absolute posities binnenin */
 }
 
+/* Stijlen voor de voortgangsbalk zelf */
 .progress-bar {
-    height: 30px;
-    background-color: #4CAF50;
-    width: 0%;
-    text-align: center;
-    line-height: 30px;
-    color: black; /* Changed from white to black for better visibility */
-    transition: width 1s ease-in-out;
-    border-radius: 25px;
+    height: 30px; /* Hoogte van de voortgangsbalk */
+    background-color: #4CAF50; /* Groene achtergrondkleur */
+    width: 0%; /* Start met een breedte van 0% */
+    text-align: center; /* Tekst centreren binnen de balk */
+    line-height: 30px; /* Lijnhoogte gelijk aan de hoogte voor verticale centrering */
+    color: black; /* Zwarte tekstkleur voor zichtbaarheid */
+    transition: width 1s ease-in-out; /* Vloeiende overgang van de breedte */
+    border-radius: 25px; /* Afronden van hoeken */
 }
 
+/* Stijlen voor het label binnen de voortgangsbalk */
 .progress-label {
-    position: absolute;
-    width: 100%;
-    text-align: center;
-    top: 0;
-    line-height: 30px;
-    font-weight: bold;
-    color: #555;
-    z-index: 1; /* Ensure the label is above the progress bar */
+    position: absolute; /* Absolute positionering binnen de container */
+    width: 100%; /* Volledige breedte */
+    text-align: center; /* Tekst centreren */
+    top: 0; /* Plaatsing aan de bovenkant */
+    line-height: 30px; /* Lijnhoogte gelijk aan de hoogte voor verticale centrering */
+    font-weight: bold; /* Vetgedrukte tekst */
+    color: #555; /* Donkergrijze tekstkleur */
+    z-index: 1; /* Zorg ervoor dat het label boven de voortgangsbalk staat */
 }
-
