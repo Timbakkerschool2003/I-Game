@@ -158,3 +158,50 @@ body {
 .btn-big:hover {
     background-color: #45a049;
 }
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.animated-number {
+    display: inline-block;
+    animation: fadeIn 1s ease-in-out;
+}
+
+
+.progress-container {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 25px;
+    margin: 20px 0;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.progress-bar {
+    height: 30px;
+    background-color: #4CAF50;
+    width: 0%;
+    text-align: center;
+    line-height: 30px;
+    color: black; /* Changed from white to black for better visibility */
+    transition: width 1s ease-in-out;
+    border-radius: 25px;
+}
+
+.progress-label {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 0;
+    line-height: 30px;
+    font-weight: bold;
+    color: #555;
+    z-index: 1; /* Ensure the label is above the progress bar */
+}
