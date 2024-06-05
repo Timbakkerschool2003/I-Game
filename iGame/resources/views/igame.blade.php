@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <!-- De meta tags bevatten informatie over de tekenset en de viewport-instellingen -->
     <meta charset="UTF-8">
@@ -16,7 +16,7 @@
         // Functie die controleert of het spel voorbij is (wanneer week 24 is bereikt)
         function checkGameOver(week) {
             if (week >= 24) {
-                alert('De game is klaar!'); // Toon een melding dat het spel voorbij is
+                alert('Het spel is klaar!'); // Toon een melding dat het spel voorbij is
                 window.location.href = "{{ route('igame.results') }}"; // Navigeer naar de resultatenpagina
             }
         }
@@ -44,43 +44,43 @@
             <!-- Statistiek item voor klantbestellingen -->
             <div class="stat-item blue">
                 <h2 class="animated-number">{{ $customer_orders }}</h2>
-                <p>Customer Orders</p>
-                <p class="small">Last week's orders from your customers</p>
+                <p>Klantbestellingen</p>
+                <p class="small">Bestellingen van uw klanten van vorige week</p>
             </div>
 
             <!-- Statistiek item voor achterstanden -->
             <div class="stat-item {{ $backorder > 500 ? 'red' : 'blue' }}">
                 <h2 class="animated-number">{{ $backorder }}</h2>
-                <p>Backorder</p>
-                <p class="small">The units you put on backorder because you ran out of stock</p>
+                <p>Achterstand</p>
+                <p class="small">De eenheden die u in achterstand hebt gezet omdat u geen voorraad meer had</p>
             </div>
 
             <!-- Statistiek item voor kosten -->
             <div class="stat-item blue">
                 <h2 class="animated-number">{{ $costs }} €</h2>
-                <p>Costs</p>
-                <p class="small">Last week's costs</p>
+                <p>Kosten</p>
+                <p class="small">Kosten van vorige week</p>
             </div>
 
             <!-- Statistiek item voor inkomende leveringen -->
             <div class="stat-item blue">
                 <h2 class="animated-number">{{ $incoming_delivery }}</h2>
-                <p>Incoming Delivery</p>
-                <p class="small">The units that were delivered to you from the wholesaler</p>
+                <p>Inkomende Levering</p>
+                <p class="small">De eenheden die door de groothandel aan u zijn geleverd</p>
             </div>
 
             <!-- Statistiek item voor voorraad -->
             <div class="stat-item blue">
                 <h2 class="animated-number">{{ $inventory }}</h2>
-                <p>Inventory</p>
-                <p class="small">Units of beer you have in stock</p>
+                <p>Voorraad</p>
+                <p class="small">Eenheden bier die u op voorraad heeft</p>
             </div>
 
             <!-- Statistiek item voor uitgaande leveringen -->
             <div class="stat-item blue">
                 <h2 class="animated-number">{{ $outgoing_delivery }}</h2>
-                <p>Outgoing Delivery</p>
-                <p class="small">The units you delivered to your customers</p>
+                <p>Uitgaande Levering</p>
+                <p class="small">De eenheden die u aan uw klanten hebt geleverd</p>
             </div>
         </div>
 
@@ -99,7 +99,7 @@
                 <!-- CSRF-token voor beveiliging van het formulier -->
                 @csrf
                 <!-- Label en invoerveld voor het aantal extra bestellingen -->
-                <label for="extra_order">Hoeveel koop ik in?</label>
+                <label for="extra_order">Hoeveel bestel ik?</label>
                 <input type="number" min="0" id="extra_order" name="extra_order" value="0">
                 
                 <!-- Verborgen invoervelden om de huidige waarden door te geven bij het indienen van het formulier -->
@@ -111,7 +111,7 @@
                 <input type="hidden" name="week" value="{{ $week }}">
                 
                 <!-- Knop om het formulier in te dienen -->
-                <button type="submit">Inkopen</button>
+                <button type="submit">Bestellen</button>
             </form>
         </div>
     </div>

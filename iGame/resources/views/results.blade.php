@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <!-- Meta tags bevatten informatie over de tekenset en viewport-instellingen -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- De titel van de webpagina -->
-    <title>Game Results</title>
+    <title>Spelresultaten</title>
     
     <!-- Koppeling naar het externe CSS-bestand voor opmaak van de pagina -->
     <link href="../../css/app.css" rel="stylesheet">
@@ -16,7 +16,7 @@
     <div class="container">
         
         <!-- Titel van de pagina -->
-        <h2>Game Over - Resultaten</h2>
+        <h2>Spel Over - Resultaten</h2>
         
         <!-- Tabel om de resultaten van het spel weer te geven -->
         <table class="results-table">
@@ -24,13 +24,13 @@
             <thead>
                 <tr>
                     <th>Week</th>
-                    <th>Extra Order</th>
-                    <th>Customer Orders</th>
-                    <th>Backorder</th>
-                    <th>Costs</th>
-                    <th>Incoming Delivery</th>
-                    <th>Inventory</th>
-                    <th>Outgoing Delivery</th>
+                    <th>Extra Bestelling</th>
+                    <th>Klantbestellingen</th>
+                    <th>Achterstand</th>
+                    <th>Kosten</th>
+                    <th>Inkomende Levering</th>
+                    <th>Voorraad</th>
+                    <th>Uitgaande Levering</th>
                 </tr>
             </thead>
             <!-- Tabellichaam met de gegevens -->
@@ -38,7 +38,7 @@
                 <!-- Loop door de resultaten om elke rij in de tabel te genereren -->
                 @foreach ($results as $result)
                     <tr>
-                        <!-- Toon de weeknummer -->
+                        <!-- Toon het weeknummer -->
                         <td>{{ $result['week'] }}</td>
                         <!-- Toon de extra bestellingen -->
                         <td>{{ $result['extra_order'] }}</td>
