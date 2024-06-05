@@ -64,7 +64,7 @@
             <!-- CSRF-token voor beveiliging van het formulier -->
             @csrf
             <!-- Knop om het formulier in te dienen -->
-            <button type="submit" class="back-button">Terug naar Beginpagina</button>
+            <button type="submit" class="back-button">Begin game opnieuw</button>
         </form>
     </div>
 </body>
